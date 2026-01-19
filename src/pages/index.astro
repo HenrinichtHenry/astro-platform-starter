@@ -1,19 +1,55 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
+import { Image } from 'astro:assets';
+import profileImage from '../assets/foddo.jpg';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const aboutText = "Ich begann meine Arbeit 2024 im Rahmen meines Freiwilligendienst bei der Musikschule der Stadt Speyer. Da meine Erklärvideos auf viel positives Feedback stoßen, setze Ich diese Arbeit seit 2025 als Freiberufler fort und unterstütze sowohl Kommunalverwaltungen als auch private Unternehmen dabei ihr Wissen an die nächste Generation weiterzugeben.";
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Henri Neuhaus - Videoproduktion">
+    <div class="flex flex-col items-center justify-center py-12 sm:py-20 gap-8">
+        
+        <!-- Hero Section -->
+        <div class="text-center space-y-6">
+            <div class="relative w-48 h-48 mx-auto overflow-hidden rounded-full border-4 border-primary/20 shadow-xl">
+                <Image 
+                    src={profileImage} 
+                    alt="Henri Neuhaus" 
+                    class="object-cover w-full h-full"
+                    width={400}
+                    height={400}
+                />
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">Henri Neuhaus</h1>
+            <p class="text-xl sm:text-2xl text-gray-300">Videoproduktion für Unternehmen & Kommunen</p>
+            <p class="max-w-2xl mx-auto text-gray-400">
+                Digitalisierung vorantreiben und Know-How Transfer vereinfachen durch kurze Erklär- und Tutorialvideos.
+            </p>
+        </div>
+
+        <!-- Meine Leistungen -->
+        <section class="w-full max-w-3xl mt-16">
+            <h2 class="text-3xl font-bold mb-8 text-center border-b border-gray-700 pb-4">Meine Leistungen</h2>
+            <div class="grid gap-8 justify-center">
+                <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-primary transition-colors">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Videos</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Professionelle Erstellung von kurzen Erklär- und Tutorialvideos.
+                        Ideal für Unternehmen und Kommunen, um komplexe Sachverhalte einfach darzustellen und Wissen effektiv weiterzugeben.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über mich -->
+        <section class="w-full max-w-3xl mt-16 mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center border-b border-gray-700 pb-4">Über mich</h2>
+            <div class="bg-gray-800/30 p-8 rounded-2xl">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    {aboutText}
+                </p>
+            </div>
+        </section>
+
+    </div>
 </Layout>
