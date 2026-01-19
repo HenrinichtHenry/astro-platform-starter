@@ -1,95 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Markdown from '../components/Markdown.astro';
 
+const explainer = `
+An Astro website can go way beyond static pages - on the right platform.
+
+Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
+Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
+`;
 ---
 
-<Layout title="Henri Neuhaus - Videoproduktion & Digitalisierung">
-    <!-- Hero Section -->
-    <section class="flex flex-col items-start justify-center py-20 sm:py-32">
-        <h1 class="mb-6 leading-tight">
-            Digitalisierung & <span class="text-primary">Wissenstransfer</span><br /> durch Video.
-        </h1>
-        <p class="mb-10 text-xl text-gray-200 max-w-2xl">
-            Maßgeschneiderte Erklärvideos und Tutorials für Unternehmen und Kommunen. 
-            Ich helfe Ihnen, komplexe Prozesse einfach zu erklären und Wissen effizient weiterzugeben.
-        </p>
-        <div class="flex flex-wrap gap-4">
-            <a href="#kontakt" class="btn btn-lg">Kontakt aufnehmen</a>
-            <a href="#leistungen" class="btn btn-lg bg-transparent border border-white hover:bg-white/10">Meine Leistungen</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="leistungen" class="py-20 border-t border-white/10">
-        <h2 class="mb-12 text-center">Meine Leistungen</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="text-xl font-bold text-primary mb-4">Erklärvideos</h3>
-                <p class="text-gray-300">
-                    Kurze, prägnante Videos, die Ihre Produkte, Dienstleistungen oder Konzepte verständlich machen. Perfekt für Marketing und interne Kommunikation.
-                </p>
-            </div>
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="text-xl font-bold text-primary mb-4">Tutorials & Schulungen</h3>
-                <p class="text-gray-300">
-                    Schritt-für-Schritt Anleitungen für Software, Maschinen oder Arbeitsprozesse. Entlasten Sie Ihren Support und schulen Sie Mitarbeiter effizient.
-                </p>
-            </div>
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="text-xl font-bold text-primary mb-4">Digitalisierungs-Beratung</h3>
-                <p class="text-gray-300">
-                    Ich unterstütze Sie dabei, analoges Wissen zu digitalisieren und nachhaltig in Ihrem Unternehmen oder Ihrer Kommune zu verankern.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="ueber-mich" class="py-20 border-t border-white/10 flex flex-col md:flex-row items-center gap-12">
-        <div class="flex-1">
-            <h2 class="mb-6">Über Henri Neuhaus</h2>
-            <p class="text-lg text-gray-300 mb-6">
-                Als Freelancer und Kleinunternehmer habe ich es mir zur Aufgabe gemacht, den digitalen Wandel greifbar zu machen. 
-                Mit einem Fokus auf klare Kommunikation und hochwertige Videoproduktion unterstütze ich meine Kunden dabei, Hürden abzubauen.
-            </p>
-            <p class="text-lg text-gray-300">
-                Egal ob Stadtverwaltung oder mittelständisches Unternehmen – gemeinsam finden wir die passende visuelle Sprache für Ihr Anliegen.
-            </p>
-        </div>
-        <!-- Placeholder for Image -->
-        <div class="flex-1 flex justify-center">
-            <div class="w-64 h-64 rounded-full bg-gradient-to-br from-primary to-complementary flex items-center justify-center text-4xl font-bold shadow-2xl border-4 border-white/20">
-                HN
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="kontakt" class="py-20 border-t border-white/10">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="mb-8 text-center">Kontaktieren Sie mich</h2>
-            <p class="text-center text-gray-300 mb-10">
-                Haben Sie Fragen oder ein konkretes Projekt? Schreiben Sie mir!
-            </p>
-            
-            <form name="contact" method="POST" data-netlify="true" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" placeholder="Ihr Name" />
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium mb-2">E-Mail</label>
-                    <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" placeholder="ihre@email.de" />
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium mb-2">Nachricht</label>
-                    <textarea name="message" id="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" placeholder="Wie kann ich Ihnen helfen?"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-lg w-full sm:w-auto">Nachricht senden</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
+<Layout title="Welcome to Astro.">
+    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
+    <Markdown content={explainer} class="mb-10 text-lg" />
+    <p>
+        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
+    </p>
 </Layout>
